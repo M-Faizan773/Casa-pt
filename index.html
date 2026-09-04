@@ -1,181 +1,193 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa.pt - Reparação iPhone</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: #f8fafc; color: #1e293b; padding: 15px; }
-        
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; border-bottom: 1px solid #e2e8f0; background: #fff; margin: -15px -15px 15px -15px; }
-        .logo { font-size: 22px; font-weight: bold; color: #2563eb; }
-        .btn-whatsapp-top { background-color: #22c55e; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 14px; }
-        
-        .selector-box { margin: 15px 0; background: #fff; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0; }
-        .selector-box label { display: block; margin-bottom: 8px; font-size: 14px; color: #64748b; font-weight: 600; }
-        select { width: 100%; padding: 12px; border-radius: 8px; background-color: #f8fafc; color: #0f172a; border: 1px solid #cbd5e1; font-size: 16px; outline: none; font-weight: 600; }
+    <!-- SEO Optimization -->
+    <title>All Mobile Spare Parts | iPhone X to 17 Pro Max & Samsung S21-S26 Ultra</title>
+    <meta name="description" content="Buy original LCDs, Batteries, Charging Flex, Down Boards, and Speakers for iPhone and Samsung models. Direct order via WhatsApp.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function filterModel(modelId, titleText) {
+            // Hide all model sections
+            const sections = document.querySelectorAll('.model-section');
+            sections.forEach(sec => sec.classList.add('hidden'));
 
-        .phone-display { text-align: center; margin: 15px 0; background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; }
-        .phone-display img { width: 140px; height: auto; max-height: 200px; object-fit: contain; }
+            // Show selected model section
+            const selected = document.getElementById(modelId);
+            if(selected) {
+                selected.classList.remove('hidden');
+            }
 
-        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        
-        .service-card { border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: center; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; }
-        .full-width { grid-column: span 2; }
-        
-        .service-icon { width: 90px; height: 90px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .service-icon img { width: 100%; height: 100%; object-fit: contain; }
-        
-        .service-title { font-size: 14px; font-weight: 700; color: #0f172a; margin-bottom: 5px; }
-        .service-sub { font-size: 11px; color: #64748b; margin-bottom: 2px; }
-        .service-time { font-size: 11px; color: #64748b; margin-bottom: 10px; }
-        
-        .screen-qualities { display: flex; flex-direction: column; gap: 6px; margin: 10px 0 15px; text-align: left; }
-        .quality-item { display: flex; justify-content: space-between; align-items: center; background: #f8fafc; padding: 8px 10px; border-radius: 6px; border: 1px solid #e2e8f0; font-size: 12px; font-weight: 600; }
-        .quality-item span { color: #2563eb; }
-
-        .price { font-size: 15px; font-weight: 800; color: #2563eb; margin-bottom: 10px; }
-        .btn-reservar { display: block; width: 100%; background-color: #2563eb; color: white; text-align: center; padding: 9px 0; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 13px; }
-    </style>
+            // Update title
+            document.getElementById('current-model-title').innerText = titleText;
+            window.scrollTo({ top: document.getElementById('parts-display').offsetTop - 20, behavior: 'smooth' });
+        }
+    </script>
 </head>
-<body>
+<body class="bg-gray-100 font-sans text-gray-800">
 
-    <div class="header">
-        <div class="logo">Casa.pt</div>
-        <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20repara%C3%A7%C3%A3o." target="_blank" class="btn-whatsapp-top">WhatsApp</a>
-    </div>
+    <!-- Header -->
+    <header class="bg-slate-900 text-white sticky top-0 z-50 p-4 shadow-md flex justify-between items-center">
+        <h1 class="text-xl font-bold text-blue-400">PartsPro <span class="text-white">Mobile Parts</span></h1>
+        <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20to%20order%20mobile%20parts" target="_blank" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2">
+            WhatsApp Order
+        </a>
+    </header>
 
-    <!-- Dropdown Model Selector: iPhone X to iPhone 17 Pro Max -->
-    <div class="selector-box">
-        <label>Selecione o seu Modelo de iPhone:</label>
-        <select id="modelSelector">
-            <option>iPhone 17 Pro Max</option>
-            <option>iPhone 17 Pro</option>
-            <option>iPhone 17 Air / Plus</option>
-            <option>iPhone 17</option>
-            <option>iPhone 16 Pro Max</option>
-            <option>iPhone 16 Pro</option>
-            <option>iPhone 16 Plus</option>
-            <option>iPhone 16</option>
-            <option>iPhone 15 Pro Max</option>
-            <option>iPhone 15 Pro</option>
-            <option>iPhone 15 Plus</option>
-            <option>iPhone 15</option>
-            <option>iPhone 14 Pro Max</option>
-            <option>iPhone 14 Pro</option>
-            <option>iPhone 14 Plus</option>
-            <option>iPhone 14</option>
-            <option>iPhone 13 Pro Max</option>
-            <option>iPhone 13 Pro</option>
-            <option>iPhone 13</option>
-            <option>iPhone 13 Mini</option>
-            <option>iPhone 12 Pro Max</option>
-            <option>iPhone 12 Pro</option>
-            <option>iPhone 12</option>
-            <option>iPhone 12 Mini</option>
-            <option selected>iPhone 11 Pro Max</option>
-            <option>iPhone 11 Pro</option>
-            <option>iPhone 11</option>
-            <option>iPhone XS Max</option>
-            <option>iPhone XS</option>
-            <option>iPhone XR</option>
-            <option>iPhone X</option>
-        </select>
-    </div>
-
-    <!-- Real Main iPhone Render -->
-    <div class="phone-display">
-        <img id="mainPhoneImg" src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=500&auto=format&fit=crop&q=80" alt="Real iPhone Model">
-    </div>
-
-    <!-- 5 Parts with Real Component Photos -->
-    <div class="services-grid">
-
-        <!-- 1. Real LCD/Screen Assembly Photo -->
-        <div class="service-card full-width">
-            <div>
-                <div class="service-icon">
-                    <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&auto=format&fit=crop&q=80" alt="Asli iPhone LCD Screen Component">
-                </div>
-                <div class="service-title">Substituição de Vidro / Ecrã</div>
-                <div class="service-sub">Garantia até 2 anos • Reparação em 2 hrs</div>
-                
-                <div class="screen-qualities">
-                    <div class="quality-item">Ecrã Original Apple <span>Sob Consulta</span></div>
-                    <div class="quality-item">Ecrã Soft OLED <span>Sob Consulta</span></div>
-                    <div class="quality-item">Ecrã Hard OLED <span>Sob Consulta</span></div>
-                    <div class="quality-item">Ecrã Cópia / Incell <span>Sob Consulta</span></div>
-                </div>
+    <!-- Navigation / Model Selector Bar -->
+    <section class="bg-slate-800 text-white py-6 px-4">
+        <div class="container mx-auto max-w-6xl">
+            
+            <!-- iPhone Models -->
+            <h2 class="text-sm font-bold text-blue-400 tracking-wider uppercase mb-2">Select iPhone Model</h2>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <button onclick="filterModel('iphone-x', 'iPhone X')" class="bg-slate-700 hover:bg-blue-600 px-3 py-1.5 rounded-lg text-xs font-semibold">iPhone X</button>
+                <button onclick="filterModel('iphone-xs', 'iPhone XS / XS Max')" class="bg-slate-700 hover:bg-blue-600 px-3 py-1.5 rounded-lg text-xs font-semibold">iPhone XS / XS Max</button>
+                <button onclick="filterModel('iphone-11', 'iPhone 11 Series')" class="bg-slate-700 hover:bg-blue-600 px-3 py-1.5 rounded-lg text-xs font-semibold">iPhone 11 / 11 Pro Max</button>
+                <button onclick="filterModel('iphone-12', 'iPhone 12 Series')" class="bg-slate-700 hover:bg-blue-600 px-3 py-1.5 rounded-lg text-xs font-semibold">iPhone 12 / 12 Pro Max</button>
+                <button onclick="filterModel('iphone-13', 'iPhone 13 Series')" class="bg-slate-700 hover:bg-blue-600 px-3 py-1.5 rounded-lg text-xs font-semibold">iPhone 13 / 13 Pro Max</button>
+                <button onclick="filterModel('iphone-14', 'iPhone 14 Series')" class="bg-slate-700 hover:bg-blue-600 px-3 py-1.5 rounded-lg text-xs font-semibold">iPhone 14 / 14 Pro Max</button>
+                <button onclick="filterModel('iphone-15', 'iPhone 15 Series')" class="bg-slate-700 hover:bg-blue-600 px-3 py-1.5 rounded-lg text-xs font-semibold">iPhone 15 / 15 Pro Max</button>
+                <button onclick="filterModel('iphone-16', 'iPhone 16 Series')" class="bg-slate-700 hover:bg-blue-600 px-3 py-1.5 rounded-lg text-xs font-semibold">iPhone 16 / 16 Pro Max</button>
+                <button onclick="filterModel('iphone-17', 'iPhone 17 Pro Max')" class="bg-slate-700 hover:bg-blue-600 px-3 py-1.5 rounded-lg text-xs font-semibold">iPhone 17 Pro Max</button>
             </div>
-            <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Preciso%20de%20or%C3%A7amento%20para%20substitui%C3%A7%C3%A3o%20de%20Ecr%C3%A3." target="_blank" class="btn-reservar">Pedir Orçamento Ecrã</a>
+
+            <!-- Samsung Models -->
+            <h2 class="text-sm font-bold text-green-400 tracking-wider uppercase mb-2">Select Samsung Model</h2>
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterModel('samsung-a33', 'Samsung Galaxy A33')" class="bg-slate-700 hover:bg-green-600 px-3 py-1.5 rounded-lg text-xs font-semibold">Samsung A33</button>
+                <button onclick="filterModel('samsung-a36', 'Samsung Galaxy A36')" class="bg-slate-700 hover:bg-green-600 px-3 py-1.5 rounded-lg text-xs font-semibold">Samsung A36</button>
+                <button onclick="filterModel('samsung-a55', 'Samsung Galaxy A55')" class="bg-slate-700 hover:bg-green-600 px-3 py-1.5 rounded-lg text-xs font-semibold">Samsung A55</button>
+                <button onclick="filterModel('samsung-a56', 'Samsung Galaxy A56')" class="bg-slate-700 hover:bg-green-600 px-3 py-1.5 rounded-lg text-xs font-semibold">Samsung A56</button>
+                <button onclick="filterModel('samsung-a57', 'Samsung Galaxy A57')" class="bg-slate-700 hover:bg-green-600 px-3 py-1.5 rounded-lg text-xs font-semibold">Samsung A57</button>
+                <button onclick="filterModel('samsung-s21', 'Samsung Galaxy S21 Series')" class="bg-slate-700 hover:bg-green-600 px-3 py-1.5 rounded-lg text-xs font-semibold">Samsung S21 / S21 Ultra</button>
+                <button onclick="filterModel('samsung-s22', 'Samsung Galaxy S22 Series')" class="bg-slate-700 hover:bg-green-600 px-3 py-1.5 rounded-lg text-xs font-semibold">Samsung S22 Ultra</button>
+                <button onclick="filterModel('samsung-s23', 'Samsung Galaxy S23 Series')" class="bg-slate-700 hover:bg-green-600 px-3 py-1.5 rounded-lg text-xs font-semibold">Samsung S23 Ultra</button>
+                <button onclick="filterModel('samsung-s24', 'Samsung Galaxy S24 Series')" class="bg-slate-700 hover:bg-green-600 px-3 py-1.5 rounded-lg text-xs font-semibold">Samsung S24 Ultra</button>
+                <button onclick="filterModel('samsung-s25', 'Samsung Galaxy S25 Series')" class="bg-slate-700 hover:bg-green-600 px-3 py-1.5 rounded-lg text-xs font-semibold">Samsung S25 Ultra</button>
+                <button onclick="filterModel('samsung-s26', 'Samsung Galaxy S26 Ultra')" class="bg-slate-700 hover:bg-green-600 px-3 py-1.5 rounded-lg text-xs font-semibold">Samsung S26 Ultra</button>
+            </div>
+
         </div>
+    </section>
 
-        <!-- 2. Real iPhone Battery Part Photo -->
-        <div class="service-card">
-            <div>
-                <div class="service-icon">
-                    <img src="https://images.unsplash.com/photo-1619725002198-6a689b72f41d?w=400&auto=format&fit=crop&q=80" alt="Asli iPhone Battery Component">
-                </div>
-                <div class="service-title">Substituição Bateria</div>
-                <div class="service-sub">Garantia 1 ano</div>
-                <div class="service-time">Em 1 hr</div>
+    <!-- Dynamic Parts Display Section -->
+    <main id="parts-display" class="container mx-auto max-w-6xl p-6">
+        <h2 id="current-model-title" class="text-3xl font-extrabold mb-6 text-slate-800 border-b-2 border-blue-500 pb-2">
+            iPhone X
+        </h2>
+
+        <!-- ==================== IPHONE X PARTS ==================== -->
+        <div id="iphone-x" class="model-section grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ Original LCD Display ]</div>
+                <h3 class="font-bold text-lg">iPhone X OLED LCD Screen</h3>
+                <p class="text-xs text-gray-500 mb-4">Original Retina Touch Display Assembly</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20iPhone%20X%20LCD" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-blue-600">Order via WhatsApp</a>
             </div>
-            <div>
-                <div class="price">Sob Consulta</div>
-                <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20a%20substitui%C3%A7%C3%A3o%20da%20Bateria." target="_blank" class="btn-reservar">Reservar</a>
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ Original Battery ]</div>
+                <h3 class="font-bold text-lg">iPhone X Battery</h3>
+                <p class="text-xs text-gray-500 mb-4">High Capacity 100% Health Replacement</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20iPhone%20X%20Battery" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-blue-600">Order via WhatsApp</a>
+            </div>
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ Air / Ear Speaker ]</div>
+                <h3 class="font-bold text-lg">iPhone X Air Speaker</h3>
+                <p class="text-xs text-gray-500 mb-4">Top Earpiece Receiver Module</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20iPhone%20X%20Ear%20Speaker" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-blue-600">Order via WhatsApp</a>
+            </div>
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ Charging Flex ]</div>
+                <h3 class="font-bold text-lg">iPhone X Charging Port Flex</h3>
+                <p class="text-xs text-gray-500 mb-4">Charging Dock Connector & Mic Board</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20iPhone%20X%20Charging%20Flex" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-blue-600">Order via WhatsApp</a>
             </div>
         </div>
 
-        <!-- 3. Real Circuit / Down Board Photo -->
-        <div class="service-card">
-            <div>
-                <div class="service-icon">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&auto=format&fit=crop&q=80" alt="Asli iPhone Board Circuit Component">
-                </div>
-                <div class="service-title">Placa / Down Board</div>
-                <div class="service-sub">Garantia 1 ano</div>
-                <div class="service-time">Em 24 hrs</div>
+        <!-- ==================== IPHONE 17 PRO MAX PARTS ==================== -->
+        <div id="iphone-17" class="model-section hidden grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ ProMotion LCD Display ]</div>
+                <h3 class="font-bold text-lg">iPhone 17 Pro Max Original Display</h3>
+                <p class="text-xs text-gray-500 mb-4">120Hz ProMotion OLED Screen Assembly</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20iPhone%2017%20Pro%20Max%20LCD" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-blue-600">Order via WhatsApp</a>
             </div>
-            <div>
-                <div class="price">Sob Consulta</div>
-                <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Preciso%20de%20repara%C3%A7%C3%A3o%20na%20Placa%20/%20Down%20Board." target="_blank" class="btn-reservar">Reservar</a>
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ High Capacity Battery ]</div>
+                <h3 class="font-bold text-lg">iPhone 17 Pro Max Battery</h3>
+                <p class="text-xs text-gray-500 mb-4">Original Long Life Replacement Cell</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20iPhone%2017%20Pro%20Max%20Battery" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-blue-600">Order via WhatsApp</a>
             </div>
-        </div>
-
-        <!-- 4. Real Earpiece / Speaker Photo -->
-        <div class="service-card">
-            <div>
-                <div class="service-icon">
-                    <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?w=400&auto=format&fit=crop&q=80" alt="Asli iPhone Speaker Component">
-                </div>
-                <div class="service-title">Coluna / Speaker</div>
-                <div class="service-sub">Garantia 1 ano</div>
-                <div class="service-time">Em 1 hr</div>
-            </div>
-            <div>
-                <div class="price">Sob Consulta</div>
-                <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Gostaria%20de%20reparar%20a%20Coluna%20/%20Speaker." target="_blank" class="btn-reservar">Reservar</a>
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ Type-C Charging Flex ]</div>
+                <h3 class="font-bold text-lg">iPhone 17 Pro Max Charging Flex</h3>
+                <p class="text-xs text-gray-500 mb-4">Type-C USB Port Assembly</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20iPhone%2017%20Pro%20Max%20Charging%20Flex" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-blue-600">Order via WhatsApp</a>
             </div>
         </div>
 
-        <!-- 5. Real Charging Connector Flex Ribbon Cable Photo -->
-        <div class="service-card">
-            <div>
-                <div class="service-icon">
-                    <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&auto=format&fit=crop&q=80" alt="Asli Charging Connector Cable Flex">
-                </div>
-                <div class="service-title">Conector Carga Flex</div>
-                <div class="service-sub">Garantia 1 ano</div>
-                <div class="service-time">Em 1 hr</div>
+        <!-- ==================== SAMSUNG A55 / A56 / A57 PARTS ==================== -->
+        <div id="samsung-a55" class="model-section hidden grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ Super AMOLED LCD ]</div>
+                <h3 class="font-bold text-lg">Samsung A55 Amoled LCD</h3>
+                <p class="text-xs text-gray-500 mb-4">Original Display with Frame</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20Samsung%20A55%20LCD" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-green-600">Order via WhatsApp</a>
             </div>
-            <div>
-                <div class="price">Sob Consulta</div>
-                <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Preciso%20de%20reparar%20o%20Conector%20de%20Carga%20Flex." target="_blank" class="btn-reservar">Reservar</a>
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ Main Flex Cable ]</div>
+                <h3 class="font-bold text-lg">Samsung A55 Main Interconnect Flex</h3>
+                <p class="text-xs text-gray-500 mb-4">Motherboard to Sub-Board Cable</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20Samsung%20A55%20Main%20Flex" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-green-600">Order via WhatsApp</a>
+            </div>
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ Charging Down Board ]</div>
+                <h3 class="font-bold text-lg">Samsung A55 Down Board / Sub Board</h3>
+                <p class="text-xs text-gray-500 mb-4">Charging Port PCB with Mic</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20Samsung%20A55%20Down%20Board" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-green-600">Order via WhatsApp</a>
             </div>
         </div>
 
-    </div>
+        <!-- ==================== SAMSUNG S26 ULTRA PARTS ==================== -->
+        <div id="samsung-s26" class="model-section hidden grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ Dynamic AMOLED 2X ]</div>
+                <h3 class="font-bold text-lg">Samsung S26 Ultra Display LCD</h3>
+                <p class="text-xs text-gray-500 mb-4">Original Amoled Screen Assembly</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20Samsung%20S26%20Ultra%20LCD" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-green-600">Order via WhatsApp</a>
+            </div>
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ High Capacity Battery ]</div>
+                <h3 class="font-bold text-lg">Samsung S26 Ultra Battery</h3>
+                <p class="text-xs text-gray-500 mb-4">Original Fast-Charging Battery</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20Samsung%20S26%20Ultra%20Battery" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-green-600">Order via WhatsApp</a>
+            </div>
+            <div class="bg-white p-4 rounded-xl border shadow-sm">
+                <div class="h-40 bg-gray-100 rounded flex items-center justify-center font-semibold text-gray-400 mb-3">[ Down Board / Sub Board ]</div>
+                <h3 class="font-bold text-lg">Samsung S26 Ultra Charging Sub Board</h3>
+                <p class="text-xs text-gray-500 mb-4">Down Board Connector Module</p>
+                <a href="https://wa.me/351920470073?text=Hi,%20I%20want%20Samsung%20S26%20Ultra%20Down%20Board" class="block text-center bg-slate-900 text-white py-2 rounded font-medium text-sm hover:bg-green-600">Order via WhatsApp</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- SEO Content Footer Section -->
+    <section class="bg-white py-8 border-t mt-12">
+        <div class="container mx-auto max-w-5xl px-4 text-center">
+            <h3 class="font-bold text-lg mb-2">Original Mobile Parts Wholesale Supplier</h3>
+            <p class="text-xs text-gray-600 leading-relaxed">
+                We supply genuine LCDs, replacement batteries, earpiece air speakers, main board flex cables, charging ports, and down boards for Apple iPhone (X, XS, 11, 12, 13, 14, 15, 16, 17 Pro Max) and Samsung Galaxy (A33, A36, A55, A56, A57, S21, S22, S23, S24, S25, S26 Ultra).
+            </p>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/351920470073?text=Hello,%20I%20need%20mobile%20parts" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-xl hover:bg-green-600 transition flex items-center justify-center z-50">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.892 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+    </a>
 
 </body>
 </html>
