@@ -6,173 +6,163 @@
     <title>Casa.pt - Reparação iPhone</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: #0f172a; color: #f8fafc; padding: 20px; }
-        .header { display: flex; justify-content: space-between; align-items: center; padding: 10px 0 20px; }
-        .logo { font-size: 22px; font-weight: bold; color: #38bdf8; }
+        body { background-color: #ffffff; color: #1e293b; padding: 15px; }
+        
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 10px 0 15px; border-bottom: 1px solid #e2e8f0; }
+        .logo { font-size: 22px; font-weight: bold; color: #2563eb; }
         .btn-whatsapp-top { background-color: #22c55e; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 14px; }
         
         .selector-box { margin: 20px 0; }
-        .selector-box label { display: block; margin-bottom: 8px; font-size: 14px; color: #94a3b8; }
-        select { width: 100%; padding: 12px; border-radius: 8px; background-color: #1e293b; color: white; border: 1px solid #38bdf8; font-size: 16px; outline: none; }
+        .selector-box label { display: block; margin-bottom: 8px; font-size: 14px; color: #64748b; font-weight: 600; }
+        select { width: 100%; padding: 12px; border-radius: 8px; background-color: #f8fafc; color: #0f172a; border: 1px solid #cbd5e1; font-size: 16px; outline: none; font-weight: 600; }
 
-        .model-section { display: none; }
-        .model-section.active { display: block; }
+        .phone-display { text-align: center; margin: 20px 0; }
+        .phone-display img { width: 180px; height: auto; }
 
-        .model-title { font-size: 20px; font-weight: bold; color: #38bdf8; margin: 20px 0 10px; text-align: center; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
         
-        .cards-container { display: flex; flex-direction: column; gap: 20px; }
-        .card { background-color: #1e293b; border-radius: 12px; overflow: hidden; border: 1px solid #334155; }
-        .card img { width: 100%; height: 180px; object-fit: cover; }
-        .card-content { padding: 16px; }
-        .card-title { font-size: 18px; font-weight: bold; color: #f8fafc; margin-bottom: 8px; }
-        .card-desc { font-size: 14px; color: #94a3b8; margin-bottom: 16px; line-height: 1.4; }
-
-        .options-title { font-size: 13px; color: #38bdf8; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; }
-        .quality-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
-        .quality-btn { display: flex; justify-content: space-between; align-items: center; background-color: #0f172a; padding: 10px; border-radius: 6px; border: 1px solid #334155; color: #e2e8f0; font-size: 13px; text-decoration: none; }
-        .quality-btn span { font-weight: bold; color: #22c55e; }
-
-        .btn-group { display: flex; gap: 10px; }
-        .btn { flex: 1; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 14px; }
-        .btn-outline { border: 1px solid #38bdf8; color: #38bdf8; }
-        .btn-fill { background-color: #38bdf8; color: #0f172a; }
+        .service-card { border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: center; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; }
+        .service-icon { width: 45px; height: 45px; margin: 0 auto 10px; }
+        .service-title { font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 5px; min-height: 36px; display: flex; align-items: center; justify-content: center; }
+        .service-sub { font-size: 11px; color: #64748b; margin-bottom: 2px; }
+        .service-time { font-size: 11px; color: #64748b; margin-bottom: 10px; }
+        .price { font-size: 15px; font-weight: 800; color: #2563eb; margin-bottom: 10px; }
+        
+        .btn-reservar { display: block; width: 100%; background-color: #2563eb; color: white; text-align: center; padding: 8px 0; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 13px; }
     </style>
 </head>
 <body>
 
     <div class="header">
         <div class="logo">Casa.pt</div>
-        <a href="https://wa.me/" class="btn-whatsapp-top">WhatsApp Directo</a>
+        <a href="https://wa.me/" class="btn-whatsapp-top">WhatsApp</a>
     </div>
 
-    <!-- Dropdown Model Selector -->
+    <!-- Dropdown Model Selector: iPhone X to iPhone 17 Pro Max -->
     <div class="selector-box">
-        <label>Escolha o seu Modelo de iPhone:</label>
-        <select id="modelSelector" onchange="changeModel()">
-            <option value="ip11">iPhone 11</option>
-            <option value="ip11pm">iPhone 11 Pro Max</option>
-            <option value="ip12">iPhone 12 / 12 Pro</option>
+        <label>Selecione o seu Modelo de iPhone:</label>
+        <select id="modelSelector">
+            <!-- iPhone 17 Series -->
+            <option>iPhone 17 Pro Max</option>
+            <option>iPhone 17 Pro</option>
+            <option>iPhone 17 Air / Plus</option>
+            <option>iPhone 17</option>
+            <!-- iPhone 16 Series -->
+            <option>iPhone 16 Pro Max</option>
+            <option>iPhone 16 Pro</option>
+            <option>iPhone 16 Plus</option>
+            <option>iPhone 16</option>
+            <!-- iPhone 15 Series -->
+            <option>iPhone 15 Pro Max</option>
+            <option>iPhone 15 Pro</option>
+            <option>iPhone 15 Plus</option>
+            <option>iPhone 15</option>
+            <!-- iPhone 14 Series -->
+            <option>iPhone 14 Pro Max</option>
+            <option>iPhone 14 Pro</option>
+            <option>iPhone 14 Plus</option>
+            <option>iPhone 14</option>
+            <!-- iPhone 13 Series -->
+            <option>iPhone 13 Pro Max</option>
+            <option>iPhone 13 Pro</option>
+            <option>iPhone 13</option>
+            <option>iPhone 13 Mini</option>
+            <!-- iPhone 12 Series -->
+            <option>iPhone 12 Pro Max</option>
+            <option>iPhone 12 Pro</option>
+            <option>iPhone 12</option>
+            <option>iPhone 12 Mini</option>
+            <!-- iPhone 11 Series -->
+            <option selected>iPhone 11 Pro Max</option>
+            <option>iPhone 11 Pro</option>
+            <option>iPhone 11</option>
+            <!-- iPhone X Series -->
+            <option>iPhone XS Max</option>
+            <option>iPhone XS</option>
+            <option>iPhone XR</option>
+            <option>iPhone X</option>
         </select>
     </div>
 
-    <!-- PAGE 1: iPhone 11 Services -->
-    <div id="ip11" class="model-section active">
-        <div class="model-title">Serviços para iPhone 11</div>
-        <div class="cards-container">
-            
-            <!-- Broken LCD Card -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&w=600&q=80" alt="Broken LCD">
-                <div class="card-content">
-                    <div class="card-title">Substituição de Ecrã / LCD Partido</div>
-                    <div class="card-desc">Reparação para ecran sem imagem, manchas pretas ou touch partido.</div>
-                    
-                    <div class="options-title">Escolha a Qualidade do Ecrã:</div>
-                    <div class="quality-options">
-                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã Original</span> Pedir Orçamento</a>
-                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã OLED</span> Pedir Orçamento</a>
-                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã Cópia / Incell</span> Pedir Orçamento</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Battery Card -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1609692814858-f7cd2f0afd1f?auto=format&fit=crop&w=600&q=80" alt="Battery Replacement">
-                <div class="card-content">
-                    <div class="card-title">Troca de Bateria</div>
-                    <div class="card-desc">Bateria nova com garantia. Resolva problemas de autonomia e sobreaquecimento.</div>
-                    <div class="btn-group">
-                        <a href="https://wa.me/" class="btn btn-fill">Substituir Bateria</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Broken Glass/Back Card -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=600&q=80" alt="Glass Broken">
-                <div class="card-content">
-                    <div class="card-title">Reparação de Vidro Traseiro</div>
-                    <div class="card-desc">Troca do vidro traseiro partido mantendo a estrutura original do iPhone.</div>
-                    <div class="btn-group">
-                        <a href="https://wa.me/" class="btn btn-outline">Consultar Preço</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    <!-- Main iPhone Render Image -->
+    <div class="phone-display">
+        <img src="https://assets.stickpng.com/images/61d5f9223f03120004e0e80e.png" alt="iPhone Repair Clean Render">
     </div>
 
-    <!-- PAGE 2: iPhone 11 Pro Max Services -->
-    <div id="ip11pm" class="model-section">
-        <div class="model-title">Serviços para iPhone 11 Pro Max</div>
-        <div class="cards-container">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&w=600&q=80" alt="Broken LCD">
-                <div class="card-content">
-                    <div class="card-title">Substituição de Ecrã / LCD</div>
-                    <div class="card-desc">Solução para ecrãs partidos e falhas do display.</div>
-                    <div class="options-title">Escolha a Qualidade do Ecrã:</div>
-                    <div class="quality-options">
-                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã Original</span> Pedir Orçamento</a>
-                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã OLED</span> Pedir Orçamento</a>
-                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã Cópia</span> Pedir Orçamento</a>
-                    </div>
-                </div>
+    <!-- 5 Parts Grid -->
+    <div class="services-grid">
+
+        <!-- 1. Screen / LCD Card -->
+        <div class="service-card">
+            <div>
+                <img class="service-icon" src="https://cdn-icons-png.flaticon.com/512/644/644458.png" alt="LCD Screen">
+                <div class="service-title">Vidro / Ecrã LCD</div>
+                <div class="service-sub">Garantia - 2 anos</div>
+                <div class="service-time">Reparação em - 2 hrs</div>
             </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1609692814858-f7cd2f0afd1f?auto=format&fit=crop&w=600&q=80" alt="Battery">
-                <div class="card-content">
-                    <div class="card-title">Troca de Bateria</div>
-                    <div class="card-desc">Bateria de alta capacidade para iPhone 11 Pro Max.</div>
-                    <div class="btn-group">
-                        <a href="https://wa.me/" class="btn btn-fill">Substituir Bateria</a>
-                    </div>
-                </div>
+            <div>
+                <div class="price">Sob Consulta</div>
+                <a href="https://wa.me/" class="btn-reservar">Reservar</a>
             </div>
         </div>
-    </div>
 
-    <!-- PAGE 3: iPhone 12 Services -->
-    <div id="ip12" class="model-section">
-        <div class="model-title">Serviços para iPhone 12 / 12 Pro</div>
-        <div class="cards-container">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&w=600&q=80" alt="Broken LCD">
-                <div class="card-content">
-                    <div class="card-title">Substituição de Ecrã / LCD</div>
-                    <div class="card-desc">Ecrãs de substituição de excelente qualidade.</div>
-                    <div class="options-title">Escolha a Qualidade do Ecrã:</div>
-                    <div class="quality-options">
-                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã Original</span> Pedir Orçamento</a>
-                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã OLED</span> Pedir Orçamento</a>
-                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã Cópia</span> Pedir Orçamento</a>
-                    </div>
-                </div>
+        <!-- 2. Battery Card -->
+        <div class="service-card">
+            <div>
+                <img class="service-icon" src="https://cdn-icons-png.flaticon.com/512/3103/3103460.png" alt="Battery">
+                <div class="service-title">Substituição Bateria</div>
+                <div class="service-sub">Garantia - 1 ano</div>
+                <div class="service-time">Reparação em - 1 hr</div>
             </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1609692814858-f7cd2f0afd1f?auto=format&fit=crop&w=600&q=80" alt="Battery">
-                <div class="card-content">
-                    <div class="card-title">Troca de Bateria</div>
-                    <div class="card-desc">Substituição rápida de bateria para iPhone 12.</div>
-                    <div class="btn-group">
-                        <a href="https://wa.me/" class="btn btn-fill">Substituir Bateria</a>
-                    </div>
-                </div>
+            <div>
+                <div class="price">Sob Consulta</div>
+                <a href="https://wa.me/" class="btn-reservar">Reservar</a>
             </div>
         </div>
-    </div>
 
-    <script>
-        function changeModel() {
-            var selectedModel = document.getElementById("modelSelector").value;
-            var sections = document.getElementsByClassName("model-section");
-            for (var i = 0; i < sections.length; i++) {
-                sections[i].classList.remove("active");
-            }
-            document.getElementById(selectedModel).classList.add("active");
-        }
-    </script>
+        <!-- 3. Down Board / Motherboard Card -->
+        <div class="service-card">
+            <div>
+                <img class="service-icon" src="https://cdn-icons-png.flaticon.com/512/887/887997.png" alt="Down Board">
+                <div class="service-title">Placa / Down Board</div>
+                <div class="service-sub">Garantia - 1 ano</div>
+                <div class="service-time">Reparação em - 24 hrs</div>
+            </div>
+            <div>
+                <div class="price">Sob Consulta</div>
+                <a href="https://wa.me/" class="btn-reservar">Reservar</a>
+            </div>
+        </div>
+
+        <!-- 4. Air Speaker Card -->
+        <div class="service-card">
+            <div>
+                <img class="service-icon" src="https://cdn-icons-png.flaticon.com/512/2983/2983788.png" alt="Ear Speaker">
+                <div class="service-title">Coluna de Som / Speaker</div>
+                <div class="service-sub">Garantia - 1 ano</div>
+                <div class="service-time">Reparação em - 1 hr</div>
+            </div>
+            <div>
+                <div class="price">Sob Consulta</div>
+                <a href="https://wa.me/" class="btn-reservar">Reservar</a>
+            </div>
+        </div>
+
+        <!-- 5. Charging Flex Port Card -->
+        <div class="service-card" style="grid-column: span 2;">
+            <div>
+                <img class="service-icon" src="https://cdn-icons-png.flaticon.com/512/2983/2983780.png" alt="Charging Flex">
+                <div class="service-title">Charging Flex / Porta de Carga</div>
+                <div class="service-sub">Garantia - 1 ano</div>
+                <div class="service-time">Reparação em - 1 hr</div>
+            </div>
+            <div>
+                <div class="price">Sob Consulta</div>
+                <a href="https://wa.me/" class="btn-reservar">Reservar</a>
+            </div>
+        </div>
+
+    </div>
 
 </body>
 </html>
