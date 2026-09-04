@@ -16,67 +16,67 @@
         .selector-box label { display: block; margin-bottom: 8px; font-size: 14px; color: #64748b; font-weight: 600; }
         select { width: 100%; padding: 12px; border-radius: 8px; background-color: #f8fafc; color: #0f172a; border: 1px solid #cbd5e1; font-size: 16px; outline: none; font-weight: 600; }
 
-        .phone-display { text-align: center; margin: 20px 0; }
-        .phone-display img { width: 180px; height: auto; }
+        .phone-display { text-align: center; margin: 15px 0; }
+        .phone-display svg { width: 140px; height: auto; }
 
-        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
         
         .service-card { border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: center; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between; }
-        .service-icon { width: 45px; height: 45px; margin: 0 auto 10px; }
-        .service-title { font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 5px; min-height: 36px; display: flex; align-items: center; justify-content: center; }
+        .full-width { grid-column: span 2; }
+        
+        .service-icon { width: 50px; height: 50px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; }
+        .service-icon svg { width: 100%; height: 100%; }
+        
+        .service-title { font-size: 14px; font-weight: 700; color: #0f172a; margin-bottom: 5px; }
         .service-sub { font-size: 11px; color: #64748b; margin-bottom: 2px; }
         .service-time { font-size: 11px; color: #64748b; margin-bottom: 10px; }
-        .price { font-size: 15px; font-weight: 800; color: #2563eb; margin-bottom: 10px; }
         
-        .btn-reservar { display: block; width: 100%; background-color: #2563eb; color: white; text-align: center; padding: 8px 0; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 13px; }
+        .screen-qualities { display: flex; flex-direction: column; gap: 6px; margin: 10px 0 15px; text-align: left; }
+        .quality-item { display: flex; justify-content: space-between; align-items: center; background: #f8fafc; padding: 8px 10px; border-radius: 6px; border: 1px solid #e2e8f0; font-size: 12px; font-weight: 600; }
+        .quality-item span { color: #2563eb; }
+
+        .price { font-size: 15px; font-weight: 800; color: #2563eb; margin-bottom: 10px; }
+        .btn-reservar { display: block; width: 100%; background-color: #2563eb; color: white; text-align: center; padding: 9px 0; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 13px; }
     </style>
 </head>
 <body>
 
     <div class="header">
         <div class="logo">Casa.pt</div>
-        <a href="https://wa.me/" class="btn-whatsapp-top">WhatsApp</a>
+        <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20sobre%20repara%C3%A7%C3%A3o." target="_blank" class="btn-whatsapp-top">WhatsApp</a>
     </div>
 
     <!-- Dropdown Model Selector: iPhone X to iPhone 17 Pro Max -->
     <div class="selector-box">
         <label>Selecione o seu Modelo de iPhone:</label>
         <select id="modelSelector">
-            <!-- iPhone 17 Series -->
             <option>iPhone 17 Pro Max</option>
             <option>iPhone 17 Pro</option>
             <option>iPhone 17 Air / Plus</option>
             <option>iPhone 17</option>
-            <!-- iPhone 16 Series -->
             <option>iPhone 16 Pro Max</option>
             <option>iPhone 16 Pro</option>
             <option>iPhone 16 Plus</option>
             <option>iPhone 16</option>
-            <!-- iPhone 15 Series -->
             <option>iPhone 15 Pro Max</option>
             <option>iPhone 15 Pro</option>
             <option>iPhone 15 Plus</option>
             <option>iPhone 15</option>
-            <!-- iPhone 14 Series -->
             <option>iPhone 14 Pro Max</option>
             <option>iPhone 14 Pro</option>
             <option>iPhone 14 Plus</option>
             <option>iPhone 14</option>
-            <!-- iPhone 13 Series -->
             <option>iPhone 13 Pro Max</option>
             <option>iPhone 13 Pro</option>
             <option>iPhone 13</option>
             <option>iPhone 13 Mini</option>
-            <!-- iPhone 12 Series -->
             <option>iPhone 12 Pro Max</option>
             <option>iPhone 12 Pro</option>
             <option>iPhone 12</option>
             <option>iPhone 12 Mini</option>
-            <!-- iPhone 11 Series -->
             <option selected>iPhone 11 Pro Max</option>
             <option>iPhone 11 Pro</option>
             <option>iPhone 11</option>
-            <!-- iPhone X Series -->
             <option>iPhone XS Max</option>
             <option>iPhone XS</option>
             <option>iPhone XR</option>
@@ -84,81 +84,126 @@
         </select>
     </div>
 
-    <!-- Main iPhone Render Image -->
+    <!-- Main Vector Display Graphic -->
     <div class="phone-display">
-        <img src="https://assets.stickpng.com/images/61d5f9223f03120004e0e80e.png" alt="iPhone Repair Clean Render">
+        <svg viewBox="0 0 100 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="5" width="90" height="190" rx="18" stroke="#1e293b" stroke-width="4" fill="#f8fafc"/>
+            <rect x="35" y="12" width="30" height="5" rx="2" fill="#1e293b"/>
+            <rect x="10" y="25" width="80" height="160" rx="4" fill="#0f172a"/>
+        </svg>
     </div>
 
     <!-- 5 Parts Grid -->
     <div class="services-grid">
 
-        <!-- 1. Screen / LCD Card -->
-        <div class="service-card">
+        <!-- 1. Screen LCD Graphic + Options -->
+        <div class="service-card full-width">
             <div>
-                <img class="service-icon" src="https://cdn-icons-png.flaticon.com/512/644/644458.png" alt="LCD Screen">
-                <div class="service-title">Vidro / Ecrã LCD</div>
-                <div class="service-sub">Garantia - 2 anos</div>
-                <div class="service-time">Reparação em - 2 hrs</div>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                        <line x1="12" y1="18" x2="12.01" y2="18"/>
+                        <path d="M7 2l10 20"/>
+                    </svg>
+                </div>
+                <div class="service-title">Substituição de Vidro / Ecrã</div>
+                <div class="service-sub">Garantia até 2 anos • Reparação em 2 hrs</div>
+                
+                <div class="screen-qualities">
+                    <div class="quality-item">Ecrã Original Apple <span>Sob Consulta</span></div>
+                    <div class="quality-item">Ecrã Soft OLED <span>Sob Consulta</span></div>
+                    <div class="quality-item">Ecrã Hard OLED <span>Sob Consulta</span></div>
+                    <div class="quality-item">Ecrã Cópia / Incell <span>Sob Consulta</span></div>
+                </div>
             </div>
-            <div>
-                <div class="price">Sob Consulta</div>
-                <a href="https://wa.me/" class="btn-reservar">Reservar</a>
-            </div>
+            <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Preciso%20de%20or%C3%A7amento%20para%20substitui%C3%A7%C3%A3o%20de%20Ecr%C3%A3." target="_blank" class="btn-reservar">Pedir Orçamento Ecrã</a>
         </div>
 
-        <!-- 2. Battery Card -->
+        <!-- 2. Battery Graphic -->
         <div class="service-card">
             <div>
-                <img class="service-icon" src="https://cdn-icons-png.flaticon.com/512/3103/3103460.png" alt="Battery">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="16" height="10" rx="2"/>
+                        <line x1="20" y1="11" x2="20" y2="13"/>
+                        <line x1="6" y1="10" x2="6" y2="14"/>
+                        <line x1="10" y1="10" x2="10" y2="14"/>
+                    </svg>
+                </div>
                 <div class="service-title">Substituição Bateria</div>
-                <div class="service-sub">Garantia - 1 ano</div>
-                <div class="service-time">Reparação em - 1 hr</div>
+                <div class="service-sub">Garantia 1 ano</div>
+                <div class="service-time">Em 1 hr</div>
             </div>
             <div>
                 <div class="price">Sob Consulta</div>
-                <a href="https://wa.me/" class="btn-reservar">Reservar</a>
+                <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20a%20substitui%C3%A7%C3%A3o%20da%20Bateria." target="_blank" class="btn-reservar">Reservar</a>
             </div>
         </div>
 
-        <!-- 3. Down Board / Motherboard Card -->
+        <!-- 3. Down Board / Motherboard Graphic -->
         <div class="service-card">
             <div>
-                <img class="service-icon" src="https://cdn-icons-png.flaticon.com/512/887/887997.png" alt="Down Board">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="16" height="16" rx="2"/>
+                        <rect x="9" y="9" width="6" height="6"/>
+                        <line x1="9" y1="1" x2="9" y2="4"/>
+                        <line x1="15" y1="1" x2="15" y2="4"/>
+                        <line x1="9" y1="20" x2="9" y2="23"/>
+                        <line x1="15" y1="20" x2="15" y2="23"/>
+                        <line x1="1" y1="9" x2="4" y2="9"/>
+                        <line x1="1" y1="15" x2="4" y2="15"/>
+                        <line x1="20" y1="9" x2="23" y2="9"/>
+                        <line x1="20" y1="15" x2="23" y2="15"/>
+                    </svg>
+                </div>
                 <div class="service-title">Placa / Down Board</div>
-                <div class="service-sub">Garantia - 1 ano</div>
-                <div class="service-time">Reparação em - 24 hrs</div>
+                <div class="service-sub">Garantia 1 ano</div>
+                <div class="service-time">Em 24 hrs</div>
             </div>
             <div>
                 <div class="price">Sob Consulta</div>
-                <a href="https://wa.me/" class="btn-reservar">Reservar</a>
+                <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Preciso%20de%20repara%C3%A7%C3%A3o%20na%20Placa%20/%20Down%20Board." target="_blank" class="btn-reservar">Reservar</a>
             </div>
         </div>
 
-        <!-- 4. Air Speaker Card -->
+        <!-- 4. Speaker Graphic -->
         <div class="service-card">
             <div>
-                <img class="service-icon" src="https://cdn-icons-png.flaticon.com/512/2983/2983788.png" alt="Ear Speaker">
-                <div class="service-title">Coluna de Som / Speaker</div>
-                <div class="service-sub">Garantia - 1 ano</div>
-                <div class="service-time">Reparação em - 1 hr</div>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    </svg>
+                </div>
+                <div class="service-title">Coluna / Speaker</div>
+                <div class="service-sub">Garantia 1 ano</div>
+                <div class="service-time">Em 1 hr</div>
             </div>
             <div>
                 <div class="price">Sob Consulta</div>
-                <a href="https://wa.me/" class="btn-reservar">Reservar</a>
+                <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Gostaria%20de%20reparar%20a%20Coluna%20/%20Speaker." target="_blank" class="btn-reservar">Reservar</a>
             </div>
         </div>
 
-        <!-- 5. Charging Flex Port Card -->
-        <div class="service-card" style="grid-column: span 2;">
+        <!-- 5. Charging Flex Cable Graphic -->
+        <div class="service-card">
             <div>
-                <img class="service-icon" src="https://cdn-icons-png.flaticon.com/512/2983/2983780.png" alt="Charging Flex">
-                <div class="service-title">Charging Flex / Porta de Carga</div>
-                <div class="service-sub">Garantia - 1 ano</div>
-                <div class="service-time">Reparação em - 1 hr</div>
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-6"/>
+                        <path d="M12 2v11"/>
+                        <path d="M9 5l3-3 3 3"/>
+                    </svg>
+                </div>
+                <div class="service-title">Conector Carga Flex</div>
+                <div class="service-sub">Garantia 1 ano</div>
+                <div class="service-time">Em 1 hr</div>
             </div>
             <div>
                 <div class="price">Sob Consulta</div>
-                <a href="https://wa.me/" class="btn-reservar">Reservar</a>
+                <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Preciso%20de%20reparar%20o%20Conector%20de%20Carga%20Flex." target="_blank" class="btn-reservar">Reservar</a>
             </div>
         </div>
 
