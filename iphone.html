@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reparação Apple iPhone - Casa.pt</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: #0f172a; color: #f8fafc; line-height: 1.6; padding-bottom: 50px; }
+    header { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #1e293b; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+    header a.logo { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
+    header a.logo span { color: #38bdf8; }
+    .btn-btn { background: #25d366; color: #fff; text-decoration: none; padding: 10px 22px; border-radius: 30px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s, background 0.2s; }
+    .btn-btn:hover { transform: translateY(-2px); background: #20ba5a; }
+    
+    .hero { text-align: center; padding: 40px 20px 20px; max-width: 800px; margin: 0 auto; }
+    .hero h1 { font-size: 32px; margin-bottom: 12px; background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 16px; color: #94a3b8; }
+
+    .selector-container { max-width: 1100px; margin: 20px auto; padding: 0 20px; }
+    .model-select { width: 100%; padding: 14px 18px; border-radius: 12px; background: #1e293b; color: #fff; border: 1px solid #334155; font-size: 16px; font-weight: 600; outline: none; cursor: pointer; margin-bottom: 30px; }
+    .model-select option { background: #0f172a; color: #fff; }
+
+    .model-content { display: none; }
+    .model-content.active { display: block; }
+    
+    .services-grid { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; transition: border-color 0.3s; }
+    .card:hover { border-color: #38bdf8; }
+    .card h3 { color: #38bdf8; font-size: 18px; margin-bottom: 10px; }
+    .card p { color: #cbd5e1; font-size: 13px; margin-bottom: 20px; }
+    .card-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #334155; padding-top: 16px; }
+    .price { font-size: 16px; font-weight: 700; color: #38bdf8; }
+    .btn-card { background: #38bdf8; color: #0f172a; text-decoration: none; padding: 8px 14px; border-radius: 20px; font-weight: 700; font-size: 12px; }
+
+    footer { text-align: center; margin-top: 60px; color: #64748b; font-size: 14px; border-top: 1px solid #1e293b; padding-top: 30px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">Casa<span>.pt</span></a>
+    <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20um%20or%C3%A7amento." class="btn-btn" target="_blank">WhatsApp Directo</a>
+  </header>
+
+  <section class="hero">
+    <h1>Reparação de iPhone em Portugal</h1>
+    <p>Selecione o seu modelo para ver as opções de ecrã (Original OLED, Original LCD, Copy LCD) e Bateria.</p>
+  </section>
+
+  <div class="selector-container">
+    <select id="iphoneSelect" class="model-select" onchange="switchModel(this.value)">
+      <option value="iphone-x">iPhone X</option>
+      <option value="iphone-xr">iPhone XR</option>
+      <option value="iphone-xs">iPhone XS</option>
+      <option value="iphone-xs-max">iPhone XS Max</option>
+      <option value="iphone-11">iPhone 11</option>
+      <option value="iphone-11-pro">iPhone 11 Pro</option>
+      <option value="iphone-11-pro-max">iPhone 11 Pro Max</option>
+      <option value="iphone-12-mini">iPhone 12 mini</option>
+      <option value="iphone-12">iPhone 12</option>
+      <option value="iphone-12-pro">iPhone 12 Pro</option>
+      <option value="iphone-12-pro-max">iPhone 12 Pro Max</option>
+      <option value="iphone-13-mini">iPhone 13 mini</option>
+      <option value="iphone-13">iPhone 13</option>
+      <option value="iphone-13-pro">iPhone 13 Pro</option>
+      <option value="iphone-13-pro-max">iPhone 13 Pro Max</option>
+      <option value="iphone-14">iPhone 14</option>
+      <option value="iphone-14-plus">iPhone 14 Plus</option>
+      <option value="iphone-14-pro">iPhone 14 Pro</option>
+      <option value="iphone-14-pro-max">iPhone 14 Pro Max</option>
+      <option value="iphone-15">iPhone 15</option>
+      <option value="iphone-15-plus">iPhone 15 Plus</option>
+      <option value="iphone-15-pro">iPhone 15 Pro</option>
+      <option value="iphone-15-pro-max">iPhone 15 Pro Max</option>
+      <option value="iphone-16">iPhone 16</option>
+      <option value="iphone-16-plus">iPhone 16 Plus</option>
+      <option value="iphone-16-pro">iPhone 16 Pro</option>
+      <option value="iphone-16-pro-max">iPhone 16 Pro Max</option>
+      <option value="iphone-17">iPhone 17</option>
+      <option value="iphone-17-slim">iPhone 17 Slim</option>
+      <option value="iphone-17-pro">iPhone 17 Pro</option>
+      <option value="iphone-17-pro-max" selected>iPhone 17 Pro Max</option>
+    </select>
+  </div>
+
+  <div id="modelsContainer"></div>
+
+  <footer>
+    <p>© 2026 Casa.pt - Serviço de Reparação Apple iPhone em Portugal. Contacto: +351 920 470 073</p>
+  </footer>
+
+  <script>
+    const models = [
+      "iPhone X", "iPhone XR", "iPhone XS", "iPhone XS Max",
+      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
+      "iPhone 12 mini", "iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max",
+      "iPhone 13 mini", "iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max",
+      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
+      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
+      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
+      "iPhone 17", "iPhone 17 Slim", "iPhone 17 Pro", "iPhone 17 Pro Max"
+    ];
+
+    const container = document.getElementById("modelsContainer");
+
+    models.forEach(model => {
+      const slug = model.toLowerCase().replace(/ /g, "-");
+      const encodedModel = encodeURIComponent(model);
+      
+      const html = `
+        <div id="${slug}" class="model-content">
+          <div class="services-grid">
+            <div class="card">
+              <div>
+                <h3>📱 Ecrã Original OLED</h3>
+                <p>Ecrã 100% Original Apple para ${model}. Qualidade máxima de cor e resposta ao toque.</p>
+              </div>
+              <div class="card-footer">
+                <span class="price">Pedir Preço</span>
+                <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Quero%20saber%20o%20pre%C3%A7o%20do%20Ecr%C3%A3%20Original%20OLED%20para%20${encodedModel}" class="btn-card" target="_blank">Pedir Orçamento</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h3>📱 Ecrã Original LCD</h3>
+                <p>Ecrã Original Recondicionado/Refurbished para ${model}. Qualidade genuína com ótimo custo.</p>
+              </div>
+              <div class="card-footer">
+                <span class="price">Pedir Preço</span>
+                <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Quero%20saber%20o%20pre%C3%A7o%20do%20Ecr%C3%A3%20Original%20LCD%20para%20${encodedModel}" class="btn-card" target="_blank">Pedir Orçamento</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h3>📱 Ecrã Copy LCD</h3>
+                <p>A opção mais económica para reparar o ${model} mantendo bom funcionamento diário.</p>
+              </div>
+              <div class="card-footer">
+                <span class="price">Pedir Preço</span>
+                <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Quero%20saber%20o%20pre%C3%A7o%20do%20Ecr%C3%A3%20Copy%20LCD%20para%20${encodedModel}" class="btn-card" target="_blank">Pedir Orçamento</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <div>
+                <h3>🔋 Bateria Nova</h3>
+                <p>Troca de bateria com 100% de saúde para ${model}. Recupere a autonomia original.</p>
+              </div>
+              <div class="card-footer">
+                <span class="price">Pedir Preço</span>
+                <a href="https://wa.me/351920470073?text=Ol%C3%A1!%20Quero%20saber%20o%20pre%C3%A7o%20da%20Bateria%20para%20${encodedModel}" class="btn-card" target="_blank">Pedir Orçamento</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.innerHTML += html;
+    });
+
+    function switchModel(selectedId) {
+      document.querySelectorAll('.model-content').forEach(el => el.classList.remove('active'));
+      const activeEl = document.getElementById(selectedId);
+      if(activeEl) activeEl.classList.add('active');
+    }
+
+    switchModel("iphone-17-pro-max");
+  </script>
+</body>
+</html>
