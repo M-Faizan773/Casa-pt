@@ -1,133 +1,178 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Casa.pt - Reparação iPhone</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: #0f172a; color: #f8fafc; padding: 16px; min-height: 100vh; }
-    .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; margin-bottom: 20px; border-bottom: 1px solid #1e293b; }
-    .logo { font-size: 22px; font-weight: bold; color: #38bdf8; }
-    .wa-btn { background: #22c55e; color: #fff; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 14px; }
-    
-    .selector-container { margin-bottom: 24px; }
-    label { display: block; margin-bottom: 8px; font-size: 14px; color: #94a3b8; }
-    select { width: 100%; padding: 12px; border-radius: 8px; background: #1e293b; color: #fff; border: 1px solid #334155; font-size: 16px; outline: none; }
-    
-    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
-    
-    .card { background: #1e293b; border-radius: 12px; overflow: hidden; border: 1px solid #334155; display: flex; flex-direction: column; }
-    
-    /* Dynamic Picture Style */
-    .card-img { width: 100%; height: 160px; object-fit: cover; display: block; background-color: #334155; }
-    
-    .card-content { padding: 16px; display: flex; flex-direction: column; flex-grow: 1; }
-    .card-title { font-size: 18px; font-weight: bold; color: #38bdf8; margin-bottom: 8px; }
-    .card-desc { font-size: 13px; color: #94a3b8; line-height: 1.4; margin-bottom: 16px; flex-grow: 1; }
-    
-    .card-actions { display: flex; gap: 8px; align-items: center; }
-    .btn-price { background: transparent; color: #38bdf8; border: 1px solid #38bdf8; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; text-align: center; flex: 1; }
-    .btn-order { background: #38bdf8; color: #0f172a; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: bold; text-decoration: none; text-align: center; flex: 1; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa.pt - Reparação iPhone</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; padding: 20px; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 10px 0 20px; }
+        .logo { font-size: 22px; font-weight: bold; color: #38bdf8; }
+        .btn-whatsapp-top { background-color: #22c55e; color: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 14px; }
+        
+        .selector-box { margin: 20px 0; }
+        .selector-box label { display: block; margin-bottom: 8px; font-size: 14px; color: #94a3b8; }
+        select { width: 100%; padding: 12px; border-radius: 8px; background-color: #1e293b; color: white; border: 1px solid #38bdf8; font-size: 16px; outline: none; }
+
+        .model-section { display: none; }
+        .model-section.active { display: block; }
+
+        .model-title { font-size: 20px; font-weight: bold; color: #38bdf8; margin: 20px 0 10px; text-align: center; border-bottom: 1px solid #334155; padding-bottom: 10px; }
+        
+        .cards-container { display: flex; flex-direction: column; gap: 20px; }
+        .card { background-color: #1e293b; border-radius: 12px; overflow: hidden; border: 1px solid #334155; }
+        .card img { width: 100%; height: 180px; object-fit: cover; }
+        .card-content { padding: 16px; }
+        .card-title { font-size: 18px; font-weight: bold; color: #f8fafc; margin-bottom: 8px; }
+        .card-desc { font-size: 14px; color: #94a3b8; margin-bottom: 16px; line-height: 1.4; }
+
+        .options-title { font-size: 13px; color: #38bdf8; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; }
+        .quality-options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+        .quality-btn { display: flex; justify-content: space-between; align-items: center; background-color: #0f172a; padding: 10px; border-radius: 6px; border: 1px solid #334155; color: #e2e8f0; font-size: 13px; text-decoration: none; }
+        .quality-btn span { font-weight: bold; color: #22c55e; }
+
+        .btn-group { display: flex; gap: 10px; }
+        .btn { flex: 1; text-align: center; padding: 10px; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 14px; }
+        .btn-outline { border: 1px solid #38bdf8; color: #38bdf8; }
+        .btn-fill { background-color: #38bdf8; color: #0f172a; }
+    </style>
 </head>
 <body>
 
-  <div class="header">
-    <div class="logo">Casa.pt</div>
-    <a href="https://wa.me/351900000000" class="wa-btn">WhatsApp Directo</a>
-  </div>
+    <div class="header">
+        <div class="logo">Casa.pt</div>
+        <a href="https://wa.me/" class="btn-whatsapp-top">WhatsApp Directo</a>
+    </div>
 
-  <div class="selector-container">
-    <label for="model-select">Selecione o seu Modelo de iPhone:</label>
-    <select id="model-select" onchange="updateServices()">
-    </select>
-  </div>
+    <!-- Dropdown Model Selector -->
+    <div class="selector-box">
+        <label>Escolha o seu Modelo de iPhone:</label>
+        <select id="modelSelector" onchange="changeModel()">
+            <option value="ip11">iPhone 11</option>
+            <option value="ip11pm">iPhone 11 Pro Max</option>
+            <option value="ip12">iPhone 12 / 12 Pro</option>
+        </select>
+    </div>
 
-  <div class="grid" id="services-grid">
-  </div>
-
-  <script>
-    const models = [
-      "iPhone X", "iPhone XR", "iPhone XS", "iPhone XS Max",
-      "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max",
-      "iPhone 12 mini", "iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max",
-      "iPhone 13 mini", "iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max",
-      "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
-      "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
-      "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max",
-      "iPhone 17", "iPhone 17 Air", "iPhone 17 Pro", "iPhone 17 Pro Max"
-    ];
-
-    const phoneNumber = "351900000000";
-
-    const services = [
-      {
-        id: "oled",
-        title: "Ecrã Original OLED",
-        desc: "Ecrã 100% Original Apple para MODEL. Qualidade máxima de cor e resposta ao toque.",
-        img: "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=500"
-      },
-      {
-        id: "orig-lcd",
-        title: "Ecrã Original LCD",
-        desc: "Ecrã Original Recondicionado/Refurbished para MODEL. Qualidade genuína com ótimo custo.",
-        img: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=500"
-      },
-      {
-        id: "copy-lcd",
-        title: "Ecrã Copy LCD",
-        desc: "A opção mais económica para reparar o MODEL mantendo bom funcionamento diário.",
-        img: "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=500"
-      },
-      {
-        id: "battery",
-        title: "Bateria Nova",
-        desc: "Substituição de bateria de alta capacidade para MODEL com 100% de saúde.",
-        img: "https://images.pexels.com/photos/163143/iphone-smartphone-apps-apple-inc-163143.jpeg?auto=compress&cs=tinysrgb&w=500"
-      }
-    ];
-
-    function init() {
-      const select = document.getElementById('model-select');
-      models.forEach(model => {
-        const option = document.createElement('option');
-        option.value = model;
-        option.textContent = model;
-        select.appendChild(option);
-      });
-      updateServices();
-    }
-
-    function updateServices() {
-      const selectedModel = document.getElementById('model-select').value;
-      const grid = document.getElementById('services-grid');
-      grid.innerHTML = '';
-
-      services.forEach(service => {
-        const msg = encodeURIComponent(`Olá Casa.pt! Gostaria de pedir orçamento para o ${selectedModel} - Serviço: ${service.title}.`);
-        const waUrl = `https://wa.me/${phoneNumber}?text=${msg}`;
-        const finalDesc = service.desc.replace('MODEL', selectedModel);
-
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <img src="${service.img}" alt="${service.title}" class="card-img" />
-          <div class="card-content">
-            <div class="card-title">${service.title}</div>
-            <div class="card-desc">${finalDesc}</div>
-            <div class="card-actions">
-              <a href="${waUrl}" class="btn-price">Pedir Preço</a>
-              <a href="${waUrl}" class="btn-order">Pedir Orçamento</a>
+    <!-- PAGE 1: iPhone 11 Services -->
+    <div id="ip11" class="model-section active">
+        <div class="model-title">Serviços para iPhone 11</div>
+        <div class="cards-container">
+            
+            <!-- Broken LCD Card -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&w=600&q=80" alt="Broken LCD">
+                <div class="card-content">
+                    <div class="card-title">Substituição de Ecrã / LCD Partido</div>
+                    <div class="card-desc">Reparação para ecran sem imagem, manchas pretas ou touch partido.</div>
+                    
+                    <div class="options-title">Escolha a Qualidade do Ecrã:</div>
+                    <div class="quality-options">
+                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã Original</span> Pedir Orçamento</a>
+                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã OLED</span> Pedir Orçamento</a>
+                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã Cópia / Incell</span> Pedir Orçamento</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
 
-    init();
-  </script>
+            <!-- Battery Card -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1609692814858-f7cd2f0afd1f?auto=format&fit=crop&w=600&q=80" alt="Battery Replacement">
+                <div class="card-content">
+                    <div class="card-title">Troca de Bateria</div>
+                    <div class="card-desc">Bateria nova com garantia. Resolva problemas de autonomia e sobreaquecimento.</div>
+                    <div class="btn-group">
+                        <a href="https://wa.me/" class="btn btn-fill">Substituir Bateria</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Broken Glass/Back Card -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=600&q=80" alt="Glass Broken">
+                <div class="card-content">
+                    <div class="card-title">Reparação de Vidro Traseiro</div>
+                    <div class="card-desc">Troca do vidro traseiro partido mantendo a estrutura original do iPhone.</div>
+                    <div class="btn-group">
+                        <a href="https://wa.me/" class="btn btn-outline">Consultar Preço</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PAGE 2: iPhone 11 Pro Max Services -->
+    <div id="ip11pm" class="model-section">
+        <div class="model-title">Serviços para iPhone 11 Pro Max</div>
+        <div class="cards-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&w=600&q=80" alt="Broken LCD">
+                <div class="card-content">
+                    <div class="card-title">Substituição de Ecrã / LCD</div>
+                    <div class="card-desc">Solução para ecrãs partidos e falhas do display.</div>
+                    <div class="options-title">Escolha a Qualidade do Ecrã:</div>
+                    <div class="quality-options">
+                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã Original</span> Pedir Orçamento</a>
+                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã OLED</span> Pedir Orçamento</a>
+                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã Cópia</span> Pedir Orçamento</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1609692814858-f7cd2f0afd1f?auto=format&fit=crop&w=600&q=80" alt="Battery">
+                <div class="card-content">
+                    <div class="card-title">Troca de Bateria</div>
+                    <div class="card-desc">Bateria de alta capacidade para iPhone 11 Pro Max.</div>
+                    <div class="btn-group">
+                        <a href="https://wa.me/" class="btn btn-fill">Substituir Bateria</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: iPhone 12 Services -->
+    <div id="ip12" class="model-section">
+        <div class="model-title">Serviços para iPhone 12 / 12 Pro</div>
+        <div class="cards-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1597740985671-2a8a3b80502e?auto=format&fit=crop&w=600&q=80" alt="Broken LCD">
+                <div class="card-content">
+                    <div class="card-title">Substituição de Ecrã / LCD</div>
+                    <div class="card-desc">Ecrãs de substituição de excelente qualidade.</div>
+                    <div class="options-title">Escolha a Qualidade do Ecrã:</div>
+                    <div class="quality-options">
+                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã Original</span> Pedir Orçamento</a>
+                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã OLED</span> Pedir Orçamento</a>
+                        <a href="https://wa.me/" class="quality-btn"><span>Ecrã Cópia</span> Pedir Orçamento</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1609692814858-f7cd2f0afd1f?auto=format&fit=crop&w=600&q=80" alt="Battery">
+                <div class="card-content">
+                    <div class="card-title">Troca de Bateria</div>
+                    <div class="card-desc">Substituição rápida de bateria para iPhone 12.</div>
+                    <div class="btn-group">
+                        <a href="https://wa.me/" class="btn btn-fill">Substituir Bateria</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeModel() {
+            var selectedModel = document.getElementById("modelSelector").value;
+            var sections = document.getElementsByClassName("model-section");
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove("active");
+            }
+            document.getElementById(selectedModel).classList.add("active");
+        }
+    </script>
+
 </body>
 </html>
